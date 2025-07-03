@@ -17,4 +17,24 @@ class Explorer extends Model
         'latitude',
         'longitude',
     ];
+
+    public function inventory()
+{
+    return $this->hasMany(Inventory::class);
+}
+
+public function tradesSent()
+{
+    return $this->hasMany(Trade::class, 'from_explorer_id');
+}
+
+public function tradesReceived()
+{
+    return $this->hasMany(Trade::class, 'to_explorer_id');
+}
+public function itemsFound()
+{
+    return $this->hasMany(Item::class);
+}
+
 }

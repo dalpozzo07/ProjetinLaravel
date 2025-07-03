@@ -4,23 +4,30 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-class Inventario extends Model
+class Item extends Model
 {
     use HasFactory;
 
-     protected $table = 'itens';
+     protected $table = 'items';
 
       protected $fillable = [
+        'trade_id',
         'name',
         'valor',
         'latitude',
         'longitude',
-        'explorer',
+        'explorer_id',
     ];
 
-     public function explorer()
-    {
-        return $this->belongsTo(Explorer::class);
-    }
     
+    public function inventories()
+{
+    return $this->hasMany(Inventory::class);
+}
+
+public function explorer()
+{
+    return $this->belongsTo(Explorer::class);
+}
+
 }
