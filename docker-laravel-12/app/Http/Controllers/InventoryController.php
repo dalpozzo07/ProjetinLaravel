@@ -16,7 +16,7 @@ public function store(Request $request)
 {
     $inventory = Inventory::create($request->validate([
         'explorer_id' => 'required|exists:explorers,id',
-        'item_id' => 'required|exists:items,id',
+        'items_id' => 'required|exists:items,id',
     ]));
 
     return response()->json($inventory, 201);

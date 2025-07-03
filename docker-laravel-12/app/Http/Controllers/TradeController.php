@@ -18,7 +18,7 @@ public function store(Request $request)
         'from_explorer_id' => 'required|exists:explorers,id',
         'to_explorer_id' => 'required|exists:explorers,id',
         'items' => 'required|array',
-        'items.*.item_id' => 'required|exists:items,id',
+        'items.*.items_id' => 'required|exists:items,id',
         'items.*.offered_by' => 'required|in:from,to',
     ]);
 
@@ -27,14 +27,15 @@ public function store(Request $request)
         'to_explorer_id' => $validated['to_explorer_id'],
     ]);
 
-    foreach ($validated['items'] as $item) {
-        $trade->items()->create([
-            'items_id' => $item['items_id'],
-            'offered_by' => $item['offered_by'],
-        ]);
-    }
+   foreach ($validated['items'] as $item) {
+    $trade->items()->create([
+        'items_id' => $item['items_id'],
+        'offered_by' => $item['offered_by'],
+    ]);
+}
 
     return response()->json($trade->load('items'), 201);
 }
+
 
 }

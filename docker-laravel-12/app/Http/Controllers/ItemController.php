@@ -34,7 +34,7 @@ public function store(Request $request)
 
     
     $items->name = $request->input('name', $items->name);
-    $items->valor = (int) $request->input('valor', $items->idade);
+    $items->valor = (int) $request->input('valor', $items->valor);
     $items->longitude = (float) $request->input('longitude', $items->longitude);
     $items->latitude = (float) $request->input('latitude', $items->latitude);
     $items->explorer_id = (int) $request->input('explorer_id', $items->idade);

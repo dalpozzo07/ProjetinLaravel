@@ -10,7 +10,7 @@ class TradeItem extends Model
     protected $table = 'trade_items';
 
     protected $fillable = ['trade_id',
-     'item_id',
+     'items_id',
       'offered_by',
     ];
 

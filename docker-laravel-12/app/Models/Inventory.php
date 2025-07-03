@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inventory extends Model
 {
-    protected $table = 'itens';
+    protected $table = 'items';
 
       protected $fillable = [
     
         'explorer_id',
-        'item_id',
+        'items_id',
     ];
      public function explorer()
 {

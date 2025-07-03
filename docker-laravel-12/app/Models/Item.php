@@ -11,7 +11,6 @@ class Item extends Model
      protected $table = 'items';
 
       protected $fillable = [
-        'trade_id',
         'name',
         'valor',
         'latitude',
