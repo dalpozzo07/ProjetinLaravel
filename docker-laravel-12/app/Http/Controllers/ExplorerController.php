@@ -41,4 +41,6 @@ class ExplorerController extends Controller
 
     return response()->json($explorers);
 }
+
+
 }
