@@ -9,7 +9,7 @@ class InventoryController extends Controller
 {
     public function index()
 {
-    return response()->json(Inventory::with(['explorer', 'item'])->get());
+    return response()->json(Inventory::with(['explorer', 'items'])->get());
 }
 
 public function store(Request $request)

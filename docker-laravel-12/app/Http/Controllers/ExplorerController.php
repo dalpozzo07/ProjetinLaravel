@@ -34,9 +34,6 @@ class ExplorerController extends Controller
         return response()->json(['message' => 'Explorer not found'], 404);
     }
 
-    
-    $explorers->name = $request->input('name', $explorers->name);
-    $explorers->idade = (int) $request->input('idade', $explorers->idade);
     $explorers->longitude = (float) $request->input('longitude', $explorers->longitude);
     $explorers->latitude = (float) $request->input('latitude', $explorers->latitude);
 

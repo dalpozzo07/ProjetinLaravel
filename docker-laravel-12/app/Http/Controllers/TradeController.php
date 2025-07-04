@@ -37,5 +37,23 @@ public function store(Request $request)
     return response()->json($trade->load('items'), 201);
 }
 
+public function update(Request $request, $id)
+{
+    $validated = $request->validate([
+        'status' => 'required|string|in:pendente,aceita,rejeitada,cancelada',
+    ]);
+
+    $trade = Trade::find($id);
+
+    if (!$trade) {
+        return response()->json(['message' => 'Trade não encontrada.'], 404);
+    }
+
+    $trade->status = $validated['status'];
+    $trade->save();
+
+    return response()->json(['message' => 'Status atualizado com sucesso.', 'trade' => $trade]);
+}
+
 
 }
